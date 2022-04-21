@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 
@@ -30,7 +31,8 @@ const options = {
       newDate.push(selectedDates[0]);
       return;
     }
-    return window.alert('Please choose a date in the future');
+    //   return window.alert('Please choose a date in the future');
+    Notiflix.Notify.failure('Please choose a date in the future');
   },
 
   start() {
