@@ -17,6 +17,17 @@ const newDate = [];
 let intervalId = null;
 const PROMPT_TIME = 1000;
 
+function updateTimerFace() {
+  let futuretime = newDate[0];
+  const startTime = new Date();
+  const deltaTime = futuretime - startTime;
+  const timeCode = convertMs(deltaTime);
+  updateLockFace(timeCode);
+  if (deltaTime <= 0) {
+    clearInterval(intervalId);
+  }
+}
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -41,17 +52,12 @@ const options = {
     }
 
     this.isActive = true;
-    let futuretime = newDate[0];
+    refs.buttonEl.disabled = true;
+
+    updateTimerFace();
 
     intervalId = setInterval(() => {
-      const startTime = new Date();
-      const deltaTime = futuretime - startTime;
-      const timeCode = convertMs(deltaTime);
-      updateLockFace(timeCode);
-
-      if (deltaTime <= 0) {
-        clearInterval(intervalId);
-      }
+      updateTimerFace();
     }, PROMPT_TIME);
   },
 };

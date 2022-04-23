@@ -17,7 +17,7 @@ img {
   max-width: 100%;
 }
 
-input {
+/* input {
  padding: 2px;
  width: 220px;
  margin-left: 20px;
@@ -30,7 +30,7 @@ button {
   width: 50px;
   border-radius: 4px;
   border: 1px solid #212121;
-}
+} */
 
 .timer{
   display: flex;
