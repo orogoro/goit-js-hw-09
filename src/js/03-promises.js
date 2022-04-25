@@ -38,7 +38,7 @@ function main(e) {
   e.preventDefault();
 
   for (let i = 1; i <= amount; i++) {
-    const delay = +firstDelay + +step * (i - 1);
+    const delay = Number(firstDelay) + Number(step) * (i - 1);
     createPromise(i, delay)
       .then(({ position, delay }) => {
         // console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
