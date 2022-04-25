@@ -8,7 +8,7 @@ const refs = {
 };
 
 refs.formEl.addEventListener('submit', main);
-refs.formEl.addEventListener('input', inputValue);
+refs.formEl.addEventListener('change', inputValue);
 
 let step = 0;
 let amount = 0;
@@ -38,7 +38,7 @@ function main(e) {
   e.preventDefault();
 
   for (let i = 1; i <= amount; i++) {
-    const delay = firstDelay - 0 + step * (i - 1);
+    const delay = +firstDelay + +step * (i - 1);
     createPromise(i, delay)
       .then(({ position, delay }) => {
         // console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
