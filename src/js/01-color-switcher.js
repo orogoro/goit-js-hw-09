@@ -7,19 +7,19 @@ refs.startBtn.addEventListener('click', startActiveColors);
 refs.stopBtn.addEventListener('click', stopActiveColors);
 
 const PROMPT_TIME = 1000;
-// let hasColors = false;
+let hasColors = false;
 
 function stopActiveColors() {
-  //   hasColors = true;
+  hasColors = false;
   clearInterval(intervalId);
   refs.startBtn.disabled = false;
 }
 
 function startActiveColors() {
-  //   if (hasColors) {
-  //     return;
-  //   }
-  //   hasColors = true;
+  if (hasColors) {
+    return;
+  }
+  hasColors = true;
   intervalId = setInterval(() => {
     document.body.style.backgroundColor = getRandomHexColor();
     refs.startBtn.disabled = true;
